@@ -9,7 +9,7 @@ namespace backend.Models
     public partial class TbListaFofa
     {
         [Key]
-        [Column("id_lista_fofa", TypeName = "int(11)")]
+        [Column("id_lista_fofa")]
         public int IdListaFofa { get; set; }
         [Required]
         [Column("nm_fofura", TypeName = "varchar(100)")]

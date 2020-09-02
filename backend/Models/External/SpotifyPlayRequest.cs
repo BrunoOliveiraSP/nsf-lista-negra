@@ -6,9 +6,10 @@ namespace backend.Models.External
     {
         public List<string> uris {get;set;}
 
-        public SpotifyPlayRequest()
+        public SpotifyPlayRequest(string musicaURI)
         {
             uris = new List<string>();
+            uris.Add(musicaURI);
         }
     }
 

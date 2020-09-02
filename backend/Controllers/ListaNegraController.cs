@@ -14,6 +14,7 @@ namespace backend.Controllers
         Business.ListaNegraBusiness business = new Business.ListaNegraBusiness();
         Utils.ListaNegraConversor conversor = new Utils.ListaNegraConversor();
         Business.GerenciadorFoto gerenciadorFoto = new Business.GerenciadorFoto();
+        Business.TokenValidator tokenValidator = new Business.TokenValidator();
 
         [HttpPost]
         public ActionResult<Models.Response.ListaNegraResponse> Inserir([FromForm] Models.Request.ListaNegraRequest request)
@@ -121,5 +122,24 @@ namespace backend.Controllers
         {
             return "pong";
         }
+
+
+        [HttpGet("ping/seguro")]
+        public ActionResult<string> PingSeguro() 
+        {
+            try
+            {
+                tokenValidator.TokenValido(Request);
+                return "pong";
+            }
+            catch (System.ArgumentException ex)
+            {
+                return BadRequest(
+                    new Models.Response.ErroResponse(500, ex.Message)
+                );
+            }
+        }
+
+        
     }
 }

@@ -17,18 +17,15 @@ namespace backend.Models
 
         public virtual DbSet<TbListaFofa> TbListaFofa { get; set; }
         public virtual DbSet<TbListaNegra> TbListaNegra { get; set; }
+        public virtual DbSet<TbLogin> TbLogin { get; set; }
         public virtual DbSet<TbMemelation> TbMemelation { get; set; }
-
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string conn = "server=localhost;user id=root;password=1234;database=lndb";
-                optionsBuilder.UseMySql(conn, x => {
-                    x.ServerVersion("8.0.20-mysql");
-                    //x.EnableRetryOnFailure();
-                });
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseMySql("server=localhost;user id=root;password=1234;database=lndb", x => x.ServerVersion("8.0.20-mysql"));
             }
         }
 
@@ -40,12 +37,12 @@ namespace backend.Models
                     .HasName("PRIMARY");
 
                 entity.Property(e => e.DsPorque)
-                    .HasCharSet("latin1")
-                    .HasCollation("latin1_swedish_ci");
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
 
                 entity.Property(e => e.NmFofura)
-                    .HasCharSet("latin1")
-                    .HasCollation("latin1_swedish_ci");
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
             });
 
             modelBuilder.Entity<TbListaNegra>(entity =>
@@ -55,21 +52,35 @@ namespace backend.Models
 
                 entity.Property(e => e.DsFoto)
                     .HasDefaultValueSql("'user.png'")
-                    .HasCharSet("latin1")
-                    .HasCollation("latin1_swedish_ci");
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
 
                 entity.Property(e => e.DsLocal)
-                    .HasDefaultValueSql("'Outro'")
-                    .HasCharSet("latin1")
-                    .HasCollation("latin1_swedish_ci");
+                    .HasDefaultValueSql("''")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
 
                 entity.Property(e => e.DsMotivo)
-                    .HasCharSet("latin1")
-                    .HasCollation("latin1_swedish_ci");
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
 
                 entity.Property(e => e.NmPessoa)
-                    .HasCharSet("latin1")
-                    .HasCollation("latin1_swedish_ci");
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+            });
+
+            modelBuilder.Entity<TbLogin>(entity =>
+            {
+                entity.HasKey(e => e.IdLogin)
+                    .HasName("PRIMARY");
+
+                entity.Property(e => e.DsLogin)
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.DsSenha)
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
             });
 
             modelBuilder.Entity<TbMemelation>(entity =>
@@ -86,7 +97,6 @@ namespace backend.Models
                     .HasCollation("utf8mb4_0900_ai_ci");
 
                 entity.Property(e => e.ImgMeme)
-                    .HasDefaultValueSql("'user.png'")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_0900_ai_ci");
 

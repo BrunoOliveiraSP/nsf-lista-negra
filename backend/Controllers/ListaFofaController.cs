@@ -15,7 +15,7 @@ namespace backend.Controllers
         Utils.ListaFofaConversor conversor = new Utils.ListaFofaConversor();
 
 
-        [HttpPost]
+        [HttpPost("cadastrar")]
         public ActionResult<Models.Response.ListaFofaResponse> Inserir(Models.Request.ListaFofaRequest request)
         {
             try

@@ -11,6 +11,7 @@ using System.Net.Http.Headers;
 using backend.Models.External;
 using backend.Models.Request;
 using backend.Models.Response;
+using RestSharp;
 
 namespace backend.Business
 {
@@ -19,8 +20,8 @@ namespace backend.Business
     public class SpotifyPlayerController : ControllerBase
     {
         // Informações retiradas da plataforma Spotify-For-Developers
-        const string REFRESH_TOKEN             = "AQAfkGpD70fiuK3bYfY6jF4dQlYQn5ow9kC77IeGriuxqgWLHEKcql__PUIhtPWu2iij4jwJuU1GD7Qp0aDUrcbmEHOPQRo1PWkX-VktKdYWLrxEs-nHaCXCS9hRkpxGQdw";
-        const string CLIENT_AND_SECRET         = "Basic MTcwOGNmMjIzODY4NDYzZWFiYzMxNWY0NWVkZWYzMTY6MWRmMTgwNmFlZmQ4NDJlNTg5MTJmNmMxZjZmOTlmZjY=";
+        const string REFRESH_TOKEN             = "<refresh-token>";
+        const string CLIENT_AND_SECRET         = "Basic <clientid:clientsecret>";
         const string URL_SPOTIFY_REFRESHTOKEN  = "https://accounts.spotify.com/api/token";
         const string URL_SPOTIFY_PLAY          = "https://api.spotify.com/v1/me/player/play";
         static string TOKEN                    = "";
@@ -28,11 +29,11 @@ namespace backend.Business
 
 
         [HttpPut]
-        public async Task<ActionResult<SpotifyPlayResponse>> Tocar(PlayRequest request)
+        public async Task<ActionResult<PlayResponse>> Tocar(PlayRequest request)
         {
             try 
             {
-                SpotifyPlayResponse response = await ChamarSpotifyApi(request);
+                PlayResponse response = await ChamarSpotifyApi(request);
                 return response;
             }
             catch (Exception ex)
@@ -44,35 +45,28 @@ namespace backend.Business
         }
 
 
-        public async Task<SpotifyPlayResponse> ChamarSpotifyApi(PlayRequest request)
+        public async Task<PlayResponse> ChamarSpotifyApi(PlayRequest playRequest)
         {
             // Gera token de acesso
             string token = await GerarTokenAcesso();
             
             // Cria objeto de conexao com spotify-api
-            HttpClient api = new HttpClient();
-            api.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            RestClient api = new RestClient();
+            api.AddDefaultHeader("Authorization", "Bearer " + token);
 
             // Cria body-request para enviar para spotify-api
-            SpotifyPlayRequest spotifyRequest = new SpotifyPlayRequest();
-            spotifyRequest.uris.Add(request.MusicaURI);
-
-            string json = JsonConvert.SerializeObject(spotifyRequest);
-            StringContent body = new StringContent(json);
+            RestRequest request = new RestRequest(URL_SPOTIFY_PLAY, Method.PUT);
+            request.AddJsonBody(new SpotifyPlayRequest(playRequest.MusicaURI));
 
             // Chama spotify-api verbo PUT
-            HttpResponseMessage spotifyResponse = await api.PutAsync(URL_SPOTIFY_PLAY, body);
+            IRestResponse spotifyResponse = await api.ExecuteAsync(request);
             
             // Se api expirou, reseta token
             if (spotifyResponse.StatusCode == HttpStatusCode.Unauthorized)
                 TOKEN = string.Empty;
-            
 
-            // Cria objeto response com responsta da spotify-api
-            SpotifyPlayResponse response = new SpotifyPlayResponse();
-            response.Status = (int) spotifyResponse.StatusCode;
-            response.Mensagem = await spotifyResponse.Content.ReadAsStringAsync(); 
-
+            // Cria objeto reponse
+            PlayResponse response = new PlayResponse((int)spotifyResponse.StatusCode, spotifyResponse.Content);
             return response;
         }
 

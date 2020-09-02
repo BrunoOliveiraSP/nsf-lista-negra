@@ -21,7 +21,11 @@ namespace backend.Database
 
         public List<Models.TbListaFofa> Listar()
         {
-             List<Models.TbListaFofa> lns = db.TbListaFofa.ToList();
+             List<Models.TbListaFofa> lns = 
+                db.TbListaFofa
+                  .OrderBy(x=> x.IdListaFofa)
+                  .ToList();
+
              return lns;
         }
 

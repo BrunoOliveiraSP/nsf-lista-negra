@@ -9,7 +9,7 @@ namespace backend.Models
     public partial class TbMemelation
     {
         [Key]
-        [Column("id_memelation", TypeName = "int(11)")]
+        [Column("id_memelation")]
         public int IdMemelation { get; set; }
         [Required]
         [Column("nm_autor", TypeName = "varchar(100)")]
