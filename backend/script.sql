@@ -48,6 +48,17 @@ create table tb_memelation (
 );
 
 
+-- ##################################################################################
+
+
+
+create table tb_login (
+	id_login			int primary key auto_increment,
+    ds_login			varchar(100),
+    ds_senha			varchar(200),
+    dt_inclusao			datetime
+);
+
 
 
 
