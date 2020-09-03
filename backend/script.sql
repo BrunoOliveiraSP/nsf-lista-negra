@@ -1,5 +1,5 @@
-create mydb;
-use mydb;
+create lndb;
+use lndb;
 
 
 create table tb_lista_negra (
