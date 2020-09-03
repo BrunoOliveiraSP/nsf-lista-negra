@@ -1,0 +1,53 @@
+.content_cn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  
+    background-image: url('https://github.com/SthefanySilvaSP/lista-negra/blob/master/frontend/site/src/pages/images/cadastrarbg.jpg?raw=true');
+    background-size: 100% 100%;
+  
+    min-height: 100vh;
+    width: 100%;
+    padding-bottom: 100px;
+  }
+  
+  .content_cn h1 {
+    width: 100%;
+    padding: 20px;
+  
+    text-align: center;
+  
+    color: #ffffff;
+    background-color: #6a040f;
+  }
+  
+  .btn_consultar {
+    font-size: 25px;
+    padding: 10px 40px 10px 40px;
+    margin: 100px 0px 70px 0px;
+  
+    color: white;
+    font-weight: bold;
+  
+    border: 3px solid #370617;
+    background-color: #370617;
+    border-radius: 10px;
+  }
+  
+  .btn_consultar:hover {
+    background-color: #ffffff;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.85);
+  
+    transition: 0.2s;
+  }
+  
+  #table_box {
+    width: 80%;
+    text-align: center;
+    display: none;
+    overflow: visible;
+  
+    background-color: #ffffff;
+  }

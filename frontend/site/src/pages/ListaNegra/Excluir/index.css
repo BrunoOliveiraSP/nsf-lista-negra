@@ -1,0 +1,41 @@
+.content_ex {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+  
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  
+    height: 55vh;
+    width: 30vw;
+    padding: 30px;
+    
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    z-index: 1;
+  }
+  
+  .desc {
+    text-align: center;
+  }
+  
+  .desc h3 {
+    margin-bottom: 50px;
+  }
+  
+  .opcoes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    width: 100%;
+  }

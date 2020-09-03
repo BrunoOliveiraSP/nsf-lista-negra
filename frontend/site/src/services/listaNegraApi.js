@@ -1,14 +1,12 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: 'http://nsf-lista-nsf.herokuapp.com'
+  baseURL: 'https://nsf-lista-negra.herokuapp.com'
 })
 
 export default class ListaNegraApi {
 
     async cadastrar(ln) {
-        console.log(ln);
-
         let formData = new FormData();
         formData.append('nome', ln.nome);
         formData.append('motivo', ln.motivo);
@@ -19,7 +17,6 @@ export default class ListaNegraApi {
         const resp = await api.post('/listanegra', formData, {
             headers: { 'content-type': 'multipart/form-data' }
         });
-        console.log(resp);
         return resp;
     }
 
@@ -31,8 +28,6 @@ export default class ListaNegraApi {
 
     buscarImagem(foto) {
         const urlFoto = api.defaults.baseURL + '/listanegra/foto/' + foto;
-        console.log(urlFoto);
-
         return urlFoto;
     }
 

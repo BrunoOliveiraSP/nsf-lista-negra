@@ -1,14 +1,14 @@
-
-
-import React, { useState, useRef, useEffect } from 'react';
-import LoadingBar from 'react-top-loading-bar';
-
-import ListaNegraApi from '../../services/listaNegraApi'
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-const api = new ListaNegraApi();
+import LoadingBar from 'react-top-loading-bar';
+import './index.css';
+
+import ListaNegraAPI from '../../../services/ListaNegraApi';
+const api = new ListaNegraAPI();
 
 
-export default function Consultar() {
+export default function LnConsultar() {
+
     const loadingBar = useRef(null);
 
     const [registros, setRegistros] = useState([])
@@ -20,43 +20,30 @@ export default function Consultar() {
         setRegistros([...lns])
 
         loadingBar.current.complete();
+
+        document.getElementById("table_box").style.display = "block";
     }
-
-
-    const deletarClick = async (id) => {
-        const deletado = await api.deletar(id)
-        await consultarClick();
-    }
-
-
-    useEffect(() => {
-        consultarClick();
-    }, [])
-
 
     return (
-        <div>
+        <div className="content_cn">
+            
             <LoadingBar
                 height={4}
                 color='#f11946'
                 ref={loadingBar}
                 />
+        
+            <h1>Consulte a Lista Negra</h1>
 
-            <h1>Consultar na Lista Negra</h1>
+            <button onClick={consultarClick} className="btn_consultar">Consultar</button>
 
-            <div>
-                <button onClick={consultarClick}> Consultar </button>
-            </div>
-
-            <div>
+            <div id="table_box">
                 <table className="table">
-                    <thead>
+                    <thead className="thead-dark">
                         <tr>
                             <th>ID</th>
-                            <th></th>
                             <th>Nome</th>
                             <th>Motivo</th>
-                            <th>Local</th>
                             <th>Inclusão</th>
                             <th></th>
                             <th></th>
@@ -67,32 +54,29 @@ export default function Consultar() {
                         {registros.map(item => 
                             <tr key={item.id}>
                                 <th>#{item.id}</th>
-                                <td>
-                                   <img src={api.buscarImagem(item.foto)} alt="" height="32" />
-                                </td>
                                 <td>{item.nome}</td>
                                 <td>{item.motivo}</td>
-                                <td>{item.local}</td>
-                                <td> {new Date(item.inclusao + 'Z').toLocaleString() }</td>
+                                <td> { new Date(item.inclusao + "Z").toLocaleDateString() }</td>
                                 <td>
-                                    <button onClick={() => deletarClick(item.id)}>
-                                        Deletar
-                                    </button>
+                                    <Link to={{
+                                        pathname: "/ln/alterar",
+                                        state: item
+                                    }} className="btn btn-outline-secondary">
+                                            Alterar
+                                    </Link>
                                 </td>
                                 <td>
                                     <Link to={{
-                                        pathname: "/alterar",
+                                        pathname: "/ln/excluir",
                                         state: item
-                                    }}
-                                     >
-                                         Alterar
+                                    }} className="btn btn-outline-danger">
+                                            Excluir
                                     </Link>
                                 </td>
-                            </tr>    
-                        )}
+                            </tr>)}
                     </tbody>
                 </table>
             </div>
         </div>
-    )
+    );
 }
