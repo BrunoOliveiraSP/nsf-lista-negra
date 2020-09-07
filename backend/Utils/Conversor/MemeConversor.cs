@@ -41,6 +41,17 @@ namespace backend.Utils
 
             return resp;
         }
+
+        public List<List<Models.Response.MemeResponse>> ParaResponse (List<List<Models.TbMemelation>> tbs)
+        {
+            List<List<Models.Response.MemeResponse>> resp = new List<List<Models.Response.MemeResponse>>();
+            
+            tbs.ForEach(x => 
+                resp.Add(this.ParaResponse(x))
+            );
+
+            return resp;
+        }
         
     }
 }

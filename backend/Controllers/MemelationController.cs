@@ -71,6 +71,27 @@ namespace backend.Controllers
                     new Models.Response.ErroResponse(400, ex.Message)
                 );
             }
+        }
+
+        [HttpGet("categoria")]
+        public ActionResult<List<List<Models.Response.MemeResponse>>> ConsultarPorCategoria()
+        {
+           try 
+            {
+                List<List<Models.TbMemelation>> lista = business.ConsultarPorCategoria();
+
+                if (lista.Count == 0)
+                   return NotFound();
+                
+                return conversor.ParaResponse(lista);
+
+           }
+            catch (Exception ex)
+            {
+                return BadRequest(
+                    new Models.Response.ErroResponse(400, ex.Message)
+                );
+            }
         }      
 
         [HttpPut("{id}")]
