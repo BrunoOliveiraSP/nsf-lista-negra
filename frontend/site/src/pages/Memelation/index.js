@@ -34,6 +34,12 @@ export default function Memelation() {
         >
           Consultar com Carousel
         </Link>
+        <Link
+          to="/ml/consultar/carousel/categoria"
+          className="list-group-item list-group-item-action"
+        >
+          Consultar Carousel por categoria
+        </Link>
 
         <Link to="/" className="list-group-item list-group-item-action">
           <BacktoMenu size={16} /> Voltar
