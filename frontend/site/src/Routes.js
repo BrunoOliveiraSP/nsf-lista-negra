@@ -14,7 +14,9 @@ import Consultar from './pages/Memelation/Consultar';
 import Cadastrar from './pages/Memelation/Cadastrar';
 import Alterar from './pages/Memelation/Alterar';
 import Deletar from './pages/Memelation/Excluir';
-import ConsultarCarousel from './pages/Memelation/ConsultarCarousel'
+import ConsultarCarousel from './pages/Memelation/ConsultarCarousel';
+import ConsultarCategoria from './pages/Memelation/ConsultarCategoria';
+
 
 
 
@@ -43,6 +45,8 @@ export default function Routes() {
         <Route path="/ml/alterar/:id"                 component={Alterar} />
         <Route path="/ml/deletar/:id"                 component={Deletar} />
         <Route path="/ml/consultar/carousel" exact    component={ConsultarCarousel} />
+        <Route path="/ml/consultar/carousel/categoria" component={ConsultarCategoria} />
+
 
        
         <Route path="/ln"  exact={true}            component={ListaNegraHome} />

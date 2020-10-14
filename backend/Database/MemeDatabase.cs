@@ -22,6 +22,30 @@ namespace backend.Database
             return db.TbMemelation.ToList();
         }
 
+        public List<List<Models.TbMemelation>> ConsultarPorCategoria()
+        {
+            List<string> categorias = new List<string>();
+            List<Models.TbMemelation> memesdb = db.TbMemelation.ToList();
+            List<List<Models.TbMemelation>> memesPorCategoria = new List<List<Models.TbMemelation>>();
+            
+
+            foreach (Models.TbMemelation item in memesdb)
+            {
+                if (!(categorias.Any(x => x == item.DsCategoria)))
+                    categorias.Add(item.DsCategoria);
+            }
+
+            foreach (string item in categorias)
+            {
+                List<Models.TbMemelation> listaMemes =                    
+                        memesdb.Where(x => x.DsCategoria == item).ToList();
+
+                memesPorCategoria.Add(listaMemes);
+            }
+
+            return memesPorCategoria;
+        }
+
         public Models.TbMemelation Deletar (int id)
         {
             Models.TbMemelation tb = 

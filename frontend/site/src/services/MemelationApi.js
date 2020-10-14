@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://nsf-lista-negra.herokuapp.com"
+  baseURL: "http://localhost:5000"
 });
 
 
@@ -25,7 +25,11 @@ export default class MemelationApi {
 
     return resp.data;
   }
+  async consultarCategoria() {
+  const resp = await api.get("/Memelation/categoria");
 
+    return resp.data;
+  }
   buscarImagem(foto) {
     const urlFoto = api.defaults.baseURL + "/Memelation/foto/" + foto;
     return urlFoto;

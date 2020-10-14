@@ -24,6 +24,11 @@ namespace backend.Business
             return db.Listar();
         }
 
+        public List<List<Models.TbMemelation>> ConsultarPorCategoria()
+        {
+            return db.ConsultarPorCategoria();
+        }
+
         public Models.TbMemelation Deletar (int id)
         {
             if (id <= 0)
