@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import { Search } from "react-bootstrap-icons";
 
-import ListaFofaApi from '../../services/ListaFofaApi.js';
+import ListaFofaApi from '../../../services/ListaFofaApi.js';
 const api = new ListaFofaApi();
 
 

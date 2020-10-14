@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import LoadingBar from 'react-top-loading-bar';
 import './index.css';
 
-import ListaNegraAPI from '../../services/ListaNegraApi.js';
+import ListaNegraAPI from '../../../services/ListaNegraApi.js';
 const api = new ListaNegraAPI();
 
 

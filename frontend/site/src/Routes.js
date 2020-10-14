@@ -39,7 +39,7 @@ export default function Routes() {
         <Route path="/lf/alterar"       component={ListaFofaAlterar} />
         <Route path="/lf/excluir"       component={ListaFofaExcluir} />
         
-        <Route path="/ml" exact={true}                component={Memelation} />
+        {/* <Route path="/ml" exact={true}                component={Memelation} />
         <Route path="/ml/consultar" exact            component={Consultar} />
         <Route path="/ml/cadastrar"                   component={Cadastrar} />
         <Route path="/ml/alterar/:id"                 component={Alterar} />
@@ -53,7 +53,7 @@ export default function Routes() {
         <Route path="/ln/consultar"                component={LnConsultar}    />
         <Route path="/ln/excluir"                  component={LnExcluir}      />
         <Route path="/ln/cadastrar"                component={LnCadastrar}    />
-        <Route path="/ln/alterar"                  component={LnAlterar}      />
+        <Route path="/ln/alterar"                  component={LnAlterar}      /> */}
       </Switch>
     </BrowserRouter>
   )

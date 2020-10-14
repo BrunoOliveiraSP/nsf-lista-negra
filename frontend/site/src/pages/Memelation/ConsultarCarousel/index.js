@@ -9,7 +9,7 @@ import LoadingBar from 'react-top-loading-bar';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import MemelationApi from '../../services/MemelationApi.js';
+import MemelationApi from '../../../services/MemelationApi.js';
 const api = new MemelationApi();
 
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Memelation from '../../services/MemelationApi.js';
+import Memelation from '../../../services/MemelationApi.js';
 import { useHistory, useParams, Link } from "react-router-dom";
 const api = new Memelation();
 
