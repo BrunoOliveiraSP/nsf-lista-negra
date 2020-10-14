@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import ListaFofaApi from "../../../services/ListaFofaApi.js";
+import ListaFofaApi from '../../services/ListaFofaApi.js';
 const api = new ListaFofaApi();
 
 
