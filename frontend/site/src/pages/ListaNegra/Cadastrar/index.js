@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import UploadPhoto from '../../../components/UploadPhoto';
 
-import ListaNegraAPI from "../../../services/ListaNegraApi";
+import ListaNegraAPI from '../../../services/ListaNegraApi.js';
 const api = new ListaNegraAPI();
 
 

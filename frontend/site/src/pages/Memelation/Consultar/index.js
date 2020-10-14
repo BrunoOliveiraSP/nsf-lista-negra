@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import { Search } from "react-bootstrap-icons";
 
-import Memelation from '../../../services/MemelationApi'
+import Memelation from '../../../services/MemelationApi.js'
 
 
 

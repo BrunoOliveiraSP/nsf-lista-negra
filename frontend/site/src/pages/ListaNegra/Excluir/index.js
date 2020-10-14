@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 
 import { Link, useHistory } from "react-router-dom";
-import ListaNegraAPI from '../../../services/ListaNegraApi';
+import ListaNegraAPI from '../../../services/ListaNegraApi.js';
 const api = new ListaNegraAPI();
 
 export default function LnExcluir (props) {
