@@ -40,6 +40,7 @@ namespace backend
             app.UseCors(
                 x => x.AllowAnyOrigin()
                       .AllowAnyHeader()
+                      .SetIsOriginAllowed(x => true)
                       .AllowAnyMethod());
 
             app.UseHttpsRedirection();
