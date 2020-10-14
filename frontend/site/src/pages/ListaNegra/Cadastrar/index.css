@@ -1,0 +1,74 @@
+.cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  
+    height: 100vh;
+    width: 100%;
+    padding-bottom: 70px;
+  
+    overflow: scroll;
+    color: white;
+  
+    background-image: url('https://github.com/SthefanySilvaSP/lista-negra/blob/master/frontend/site/src/pages/images/cadastrarbg.jpg?raw=true');
+    background-size: 100% 100%;
+    background-position: fixed;
+  }
+  
+  .cadastro h1 {
+    width: 100%;
+    padding: 15px;
+  
+    text-align: center;
+  
+    background-color: #6a040f;
+  }
+  
+  .info_cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    margin-top: 10%;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  
+  .info input, .info select {
+    font-size: 20px;
+    padding: 5px 0px 5px 15px;
+    margin-top: 15px;
+    width: 100%;
+  }
+  
+  .btn_salvar {
+    font-size: 25px;
+  
+    margin-top: 50px;
+    padding: 10px 40px 10px 40px;
+  
+    color: #ffffff;
+    background-color: #6a040f;
+  
+    border: 2px solid #370617;
+    border-radius: 10px;
+  }
+  .btn_salvar:active {
+    text-decoration: none;
+    border: none;
+  }
+  
+  .btn_salvar:hover {
+    box-shadow: 3px 5px 5px #370617;
+    border: 1px solid #370617;
+  }
