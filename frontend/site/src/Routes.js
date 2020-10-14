@@ -9,22 +9,22 @@ import ListaFofaConsultar from './pages/ListaFofa/Consultar'
 import ListaFofaAlterar   from './pages/ListaFofa/Alterar'
 import ListaFofaExcluir   from './pages/ListaFofa/Excluir'
 
-import Memelation from './pages/Memelation';
-import Consultar from './pages/Memelation/Consultar';
-import Cadastrar from './pages/Memelation/Cadastrar';
-import Alterar from './pages/Memelation/Alterar';
-import Deletar from './pages/Memelation/Excluir';
-import ConsultarCarousel from './pages/Memelation/ConsultarCarousel';
-import ConsultarCategoria from './pages/Memelation/ConsultarCategoria';
+// import Memelation from './pages/Memelation';
+// import Consultar from './pages/Memelation/Consultar';
+// import Cadastrar from './pages/Memelation/Cadastrar';
+// import Alterar from './pages/Memelation/Alterar';
+// import Deletar from './pages/Memelation/Excluir';
+// import ConsultarCarousel from './pages/Memelation/ConsultarCarousel';
+// import ConsultarCategoria from './pages/Memelation/ConsultarCategoria';
 
 
 
 
-import ListaNegraHome from './pages/ListaNegra';
-import LnConsultar from './pages/ListaNegra/Consultar';
-import LnExcluir from './pages/ListaNegra/Excluir';
-import LnCadastrar from './pages/ListaNegra/Cadastrar';
-import LnAlterar from './pages/ListaNegra/Alterar';
+// import ListaNegraHome from './pages/ListaNegra';
+// import LnConsultar from './pages/ListaNegra/Consultar';
+// import LnExcluir from './pages/ListaNegra/Excluir';
+// import LnCadastrar from './pages/ListaNegra/Cadastrar';
+// import LnAlterar from './pages/ListaNegra/Alterar';
 
 
 
