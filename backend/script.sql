@@ -1,4 +1,4 @@
-create lndb;
+create database lndb;
 use lndb;
 
 
