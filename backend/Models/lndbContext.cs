@@ -25,7 +25,7 @@ namespace backend.Models
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseMySql("server=localhost;user id=admin;password=1234@AbC#2020;database=lndb", x => x.ServerVersion("8.0.20-mysql"));
-            }
+            } 
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
