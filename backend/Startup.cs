@@ -41,6 +41,7 @@ namespace backend
                 x => x.AllowAnyOrigin()
                       .AllowAnyHeader()
                       .SetIsOriginAllowed(x => true)
+                      .AllowCredentials()
                       .AllowAnyMethod());
 
             app.UseHttpsRedirection();
