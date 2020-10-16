@@ -40,7 +40,7 @@ namespace backend
             app.UseCors(
                 x => x.AllowAnyOrigin()
                       .AllowAnyHeader()
-                      .SetIsOriginAllowed(x => true)
+                      //.SetIsOriginAllowed(x => true)
                       .AllowCredentials()
                       .AllowAnyMethod());
 
